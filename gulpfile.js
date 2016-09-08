@@ -1,23 +1,29 @@
+var fs = require('fs');
+var path = require('path');
 var gulp = require("gulp");
-var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
 var concat = require("gulp-concat");
-var runSequence = require("run-sequence").use(gulp);
 
-gulp.task("concat", function () {
-    return gulp.src("src/chapter01/*.js")
-        .pipe(concat("result.js"))
-        .pipe(gulp.dest("dist/chapter01"));
+
+function getFolders(dir) {
+    return fs.readdirSync(dir)
+        .filter(function (file) {
+            return fs.statSync(path.join(dir, file)).isDirectory();
+        });
+};
+
+gulp.task("es62es5", function () {
+    var folders = getFolders("src");
+
+    return folders.map(function (folder) {
+        return gulp.src(path.join("src", folder, '/*.js'))
+            .pipe(concat(folder + '.js'))
+            .pipe(gulp.dest(path.join("dist", folder)))
+            .pipe(babel())
+            .pipe(gulp.dest(path.join("dist", folder)));
+    });
 });
 
-gulp.task("transpile", function () {
-    return gulp.src("dist/chapter01/*.js")
-        .pipe(sourcemaps.init())
-        .pipe(babel())
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist/chapter01"));
-});
-
-gulp.task("default", function () {
-    return runSequence("concat", "transpile");
+gulp.task("default", ["es62es5"], function () {
+    console.log("done!");
 });
