@@ -16,10 +16,10 @@ gulp.task("es62es5", function () {
     var folders = getFolders("src");
 
     return folders.map(function (folder) {
-        return gulp.src(path.join("src", folder, '/*.js'))
+        return gulp.src(["src/tools.js", path.join("src", folder, '/*.js')])
             .pipe(concat(folder + '.js'))
             .pipe(gulp.dest(path.join("dist", folder)))
-            .pipe(babel())
+            .pipe(babel({plugins: ['transform-runtime']}))
             .pipe(gulp.dest(path.join("dist", folder)));
     });
 });

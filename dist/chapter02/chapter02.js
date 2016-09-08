@@ -1,16 +1,12 @@
 "use strict";
 
-var _slicedToArray2 = require("babel-runtime/helpers/slicedToArray");
-
-var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
-
 var _getIterator2 = require("babel-runtime/core-js/get-iterator");
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-var _iterator6 = require("babel-runtime/core-js/symbol/iterator");
+var _regenerator = require("babel-runtime/regenerator");
 
-var _iterator7 = _interopRequireDefault(_iterator6);
+var _regenerator2 = _interopRequireDefault(_regenerator);
 
 var _map = require("babel-runtime/core-js/map");
 
@@ -25,6 +21,8 @@ var _toConsumableArray2 = require("babel-runtime/helpers/toConsumableArray");
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [stupidGenerator].map(_regenerator2.default.mark);
 
 /*
  Example 00 - Sample Data and Methods
@@ -62,24 +60,55 @@ var keyString = "a string",
 variousTypeMap.set(keyString, "value associated with \"a string\"");
 variousTypeMap.set(keyObj, "value associated with keyObj");
 variousTypeMap.set(keyFunc, "value associated with keyFunc");
-/*
- Example 01 - For Of  Loop
- */
+logTitle("Simple iterator example");
 
-//Iterate over array
-logTitle("Iterate over array");
+function stupidGenerator(name) {
+    return _regenerator2.default.wrap(function stupidGenerator$(_context) {
+        while (1) {
+            switch (_context.prev = _context.next) {
+                case 0:
+                    _context.next = 2;
+                    return "Witaj " + name + "!";
+
+                case 2:
+                    _context.next = 4;
+                    return "Mam nadzieję że podoba ci się pogoda";
+
+                case 4:
+                    if (!name.startsWith("B")) {
+                        _context.next = 7;
+                        break;
+                    }
+
+                    _context.next = 7;
+                    return "Ale fajnie, twoje imie zaczyna się  od litery B";
+
+                case 7:
+                    _context.next = 9;
+                    return "To już wszystko";
+
+                case 9:
+                case "end":
+                    return _context.stop();
+            }
+        }
+    }, _marked[0], this);
+}
+
+var stupidGeneratorInstanceBigismall = stupidGenerator("Bigismall");
+var stupidGeneratorInstanceClint = stupidGenerator("Clint");
+
+logTitle("Show all fields (with name)");
 var _iteratorNormalCompletion = true;
 var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-    for (var _iterator = (0, _getIterator3.default)(sampleArray), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var element = _step.value;
+    for (var _iterator = (0, _getIterator3.default)(stupidGeneratorInstanceBigismall), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var message = _step.value;
 
-        log(element);
+        log(message);
     }
-
-    //Iterate over collection
 } catch (err) {
     _didIteratorError = true;
     _iteratorError = err;
@@ -95,19 +124,17 @@ try {
     }
 }
 
-logTitle("Iterate over collection");
+logTitle("Show all fields (without name)");
 var _iteratorNormalCompletion2 = true;
 var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-    for (var _iterator2 = (0, _getIterator3.default)(sampleObject), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var element = _step2.value;
+    for (var _iterator2 = (0, _getIterator3.default)(stupidGeneratorInstanceClint), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var message = _step2.value;
 
-        log(element);
+        log(message);
     }
-
-    //Iterate over set
 } catch (err) {
     _didIteratorError2 = true;
     _iteratorError2 = err;
@@ -119,109 +146,6 @@ try {
     } finally {
         if (_didIteratorError2) {
             throw _iteratorError2;
-        }
-    }
-}
-
-logTitle("Iterate over set");
-var _iteratorNormalCompletion3 = true;
-var _didIteratorError3 = false;
-var _iteratorError3 = undefined;
-
-try {
-    for (var _iterator3 = (0, _getIterator3.default)(uniqueWordsSet), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-        var element = _step3.value;
-
-        log(element);
-    }
-
-    //Iterate over map
-} catch (err) {
-    _didIteratorError3 = true;
-    _iteratorError3 = err;
-} finally {
-    try {
-        if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
-        }
-    } finally {
-        if (_didIteratorError3) {
-            throw _iteratorError3;
-        }
-    }
-}
-
-logTitle("Iterate over map");
-var _iteratorNormalCompletion4 = true;
-var _didIteratorError4 = false;
-var _iteratorError4 = undefined;
-
-try {
-    for (var _iterator4 = (0, _getIterator3.default)(variousTypeMap), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-        var _step4$value = (0, _slicedToArray3.default)(_step4.value, 2);
-
-        var key = _step4$value[0];
-        var value = _step4$value[1];
-
-        log([key, value]);
-    }
-    /*
-     Example 02 - Iterator Implementation
-     */
-} catch (err) {
-    _didIteratorError4 = true;
-    _iteratorError4 = err;
-} finally {
-    try {
-        if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
-        }
-    } finally {
-        if (_didIteratorError4) {
-            throw _iteratorError4;
-        }
-    }
-}
-
-function CollectionClass(dataToIterate) {
-    this.data = dataToIterate;
-    this.timestamp = Date.now();
-
-    this[_iterator7.default] = function () {
-        var nextIndex = 0;
-        var _self = this;
-        return {
-            next: function next() {
-                return nextIndex < _self.data.length ? { value: _self.data[nextIndex++].name, done: false } : { done: true };
-            }
-        };
-    };
-};
-
-var iterateCollectionInstance = new CollectionClass(sampleObject);
-
-logTitle("Iterator for Custom Collection");
-var _iteratorNormalCompletion5 = true;
-var _didIteratorError5 = false;
-var _iteratorError5 = undefined;
-
-try {
-    for (var _iterator5 = (0, _getIterator3.default)(iterateCollectionInstance), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-        var element = _step5.value;
-
-        log(element);
-    }
-} catch (err) {
-    _didIteratorError5 = true;
-    _iteratorError5 = err;
-} finally {
-    try {
-        if (!_iteratorNormalCompletion5 && _iterator5.return) {
-            _iterator5.return();
-        }
-    } finally {
-        if (_didIteratorError5) {
-            throw _iteratorError5;
         }
     }
 }
