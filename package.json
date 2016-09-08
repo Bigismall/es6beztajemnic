@@ -1,0 +1,23 @@
+{
+  "name": "es6beztajemnic.localhost",
+  "version": "1.0.0",
+  "description": "Ecma Script 2015 - przykłady transpilacji  składni ES6 do ES5",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bigismall/es6beztajemnic.git"
+  },
+  "author": "Bigismall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bigismall/es6beztajemnic/issues"
+  },
+  "homepage": "https://github.com/Bigismall/es6beztajemnic#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "run-sequence": "^1.2.2"
+  }
+}
