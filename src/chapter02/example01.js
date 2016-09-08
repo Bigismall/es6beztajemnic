@@ -1,4 +1,7 @@
-logTitle("Simple iterator example");
+/*
+ Example 01 - Simple generator example
+ */
+
 
 function* stupidGenerator(name) {
     yield "Witaj " + name + "!";

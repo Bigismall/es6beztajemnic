@@ -15,6 +15,8 @@ function log(message) {
 };
 
 
+var sampleSentence = "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.";
+
 var sampleArray = [...Array(10).keys()].sort(function () {
     return 0.5 - Math.random()
 });

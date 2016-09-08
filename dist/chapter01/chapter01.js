@@ -8,9 +8,9 @@ var _getIterator2 = require("babel-runtime/core-js/get-iterator");
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-var _iterator6 = require("babel-runtime/core-js/symbol/iterator");
+var _iterator7 = require("babel-runtime/core-js/symbol/iterator");
 
-var _iterator7 = _interopRequireDefault(_iterator6);
+var _iterator8 = _interopRequireDefault(_iterator7);
 
 var _map = require("babel-runtime/core-js/map");
 
@@ -41,6 +41,8 @@ function logTitle(title) {
 function log(message) {
     console.log(message);
 };
+
+var sampleSentence = "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.";
 
 var sampleArray = [].concat((0, _toConsumableArray3.default)(Array(10).keys())).sort(function () {
     return 0.5 - Math.random();
@@ -187,7 +189,7 @@ function CollectionClass(dataToIterate) {
     this.data = dataToIterate;
     this.timestamp = Date.now();
 
-    this[_iterator7.default] = function () {
+    this[_iterator8.default] = function () {
         var nextIndex = 0;
         var _self = this;
         return {
@@ -211,6 +213,11 @@ try {
 
         log(element);
     }
+
+    /*
+     Example 03 - More useful Iterator Implementation
+     Source: https://jakearchibald.com/2014/iterators-gonna-iterate/
+     */
 } catch (err) {
     _didIteratorError5 = true;
     _iteratorError5 = err;
@@ -222,6 +229,53 @@ try {
     } finally {
         if (_didIteratorError5) {
             throw _iteratorError5;
+        }
+    }
+}
+
+function Words(str) {
+    this._str = str;
+}
+
+Words.prototype[_iterator8.default] = function () {
+    var re = /\S+/g,
+        str = this._str;
+
+    return {
+        next: function next() {
+            var match = re.exec(str);
+
+            if (match) {
+                return { value: match[0], done: false };
+            }
+            return { value: undefined, done: true };
+        }
+    };
+};
+
+logTitle("Iterator for extract words from sentence");
+var lipsum = new Words(sampleSentence);
+var _iteratorNormalCompletion6 = true;
+var _didIteratorError6 = false;
+var _iteratorError6 = undefined;
+
+try {
+    for (var _iterator6 = (0, _getIterator3.default)(lipsum), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+        var word = _step6.value;
+
+        log(word);
+    }
+} catch (err) {
+    _didIteratorError6 = true;
+    _iteratorError6 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion6 && _iterator6.return) {
+            _iterator6.return();
+        }
+    } finally {
+        if (_didIteratorError6) {
+            throw _iteratorError6;
         }
     }
 }

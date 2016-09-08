@@ -24,6 +24,8 @@ gulp.task("es62es5", function () {
     });
 });
 
-gulp.task("default", ["es62es5"], function () {
-    console.log("done!");
+gulp.task("watch", ["es62es5"], function () {
+    gulp.watch("./src/**/*.js", ["es62es5"]);
 });
+
+gulp.task("default", ["es62es5"]);

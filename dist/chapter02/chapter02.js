@@ -40,6 +40,8 @@ function log(message) {
     console.log(message);
 };
 
+var sampleSentence = "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.";
+
 var sampleArray = [].concat((0, _toConsumableArray3.default)(Array(10).keys())).sort(function () {
     return 0.5 - Math.random();
 });
@@ -60,7 +62,9 @@ var keyString = "a string",
 variousTypeMap.set(keyString, "value associated with \"a string\"");
 variousTypeMap.set(keyObj, "value associated with keyObj");
 variousTypeMap.set(keyFunc, "value associated with keyFunc");
-logTitle("Simple iterator example");
+/*
+ Example 01 - Simple generator example
+ */
 
 function stupidGenerator(name) {
     return _regenerator2.default.wrap(function stupidGenerator$(_context) {
