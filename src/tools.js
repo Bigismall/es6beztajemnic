@@ -21,7 +21,9 @@ var sampleArray = [...Array(10).keys()].sort(function () {
     return 0.5 - Math.random()
 });
 
-var sampleObject = [
+var sampleObject = {name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now()};
+
+var sampleCollection = [
     {"name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck"},
     {"name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle"},
     {"name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen"},
@@ -37,14 +39,14 @@ var sampleObject = [
 ];
 
 
-var duplicatedWordsArray = [
+var sampleDuplicatedWordsArray = [
     "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu",
     "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"
 ];
 
-var uniqueWordsSet = new Set(duplicatedWordsArray);
+var uniqueWordsSet = new Set(sampleDuplicatedWordsArray);
 
-var variousTypeMap = new Map();
+var sampleVariousTypeMap = new Map();
 
 var keyString = "a string",
     keyObj = {},
@@ -52,6 +54,6 @@ var keyString = "a string",
     };
 
 // setting the values
-variousTypeMap.set(keyString, "value associated with \"a string\"");
-variousTypeMap.set(keyObj, "value associated with keyObj");
-variousTypeMap.set(keyFunc, "value associated with keyFunc");
+sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
+sampleVariousTypeMap.set(keyObj, "value associated with keyObj");
+sampleVariousTypeMap.set(keyFunc, "value associated with keyFunc");

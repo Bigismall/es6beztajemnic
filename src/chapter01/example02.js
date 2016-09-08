@@ -17,7 +17,7 @@ function CollectionClass(dataToIterate) {
     };
 };
 
-var iterateCollectionInstance = new CollectionClass(sampleObject);
+var iterateCollectionInstance = new CollectionClass(sampleCollection);
 
 logTitle("Iterator for Custom Collection");
 for (var element of iterateCollectionInstance) {

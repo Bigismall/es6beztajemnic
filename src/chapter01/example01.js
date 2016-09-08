@@ -8,9 +8,15 @@ for (var element of sampleArray) {
     log(element);
 }
 
+//Iterate over object
+logTitle("Iterate over object  (FOR IN)");
+for (var element in sampleObject) {
+    log(element);
+}
+
 //Iterate over collection
 logTitle("Iterate over collection");
-for (var element of sampleObject) {
+for (var element of sampleCollection) {
     log(element);
 }
 
@@ -22,6 +28,6 @@ for (var element of uniqueWordsSet) {
 
 //Iterate over map
 logTitle("Iterate over map");
-for (var [key,value] of variousTypeMap) {
+for (var [key,value] of sampleVariousTypeMap) {
     log([key,value]);
 }

@@ -4,6 +4,10 @@ var _getIterator2 = require("babel-runtime/core-js/get-iterator");
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
+var _from = require("babel-runtime/core-js/array/from");
+
+var _from2 = _interopRequireDefault(_from);
+
 var _regenerator = require("babel-runtime/regenerator");
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
@@ -22,7 +26,7 @@ var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _marked = [stupidGenerator].map(_regenerator2.default.mark);
+var _marked = [stupidGenerator, range].map(_regenerator2.default.mark);
 
 /*
  Example 00 - Sample Data and Methods
@@ -46,22 +50,24 @@ var sampleArray = [].concat((0, _toConsumableArray3.default)(Array(10).keys())).
     return 0.5 - Math.random();
 });
 
-var sampleObject = [{ "name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck" }, { "name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle" }, { "name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen" }, { "name": "Byron", "surname": "Cooke", "email": "Ut@Integersemelit.co.uk", "city": "Habergy" }, { "name": "Ciaran", "surname": "Alford", "email": "Vivamus.molestie@Nuncsollicitudincommodo.co.uk", "city": "Bussolengo" }, { "name": "Cedric", "surname": "Battle", "email": "tincidunt@ligulatortor.edu", "city": "Kelkheim" }, { "name": "Alec", "surname": "Rasmussen", "email": "taciti.sociosqu@utlacus.co.uk", "city": "Colleretto Castelnuovo" }, { "name": "Fuller", "surname": "Hooper", "email": "Nam.porttitor@tempuseuligula.com", "city": "Izel" }, { "name": "Brett", "surname": "Fox", "email": "venenatis@tempor.ca", "city": "Castello Tesino" }, { "name": "Armand", "surname": "Nicholson", "email": "magna.Nam@blanditcongue.ca", "city": "Bournemouth" }, { "name": "Kennan", "surname": "Blair", "email": "eleifend.vitae@sedduiFusce.net", "city": "Paranaguá" }, { "name": "Jack", "surname": "Lowe", "email": "erat.vitae@Nunc.ca", "city": "Roveredo in Piano" }];
+var sampleObject = { name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now() };
 
-var duplicatedWordsArray = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu", "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
+var sampleCollection = [{ "name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck" }, { "name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle" }, { "name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen" }, { "name": "Byron", "surname": "Cooke", "email": "Ut@Integersemelit.co.uk", "city": "Habergy" }, { "name": "Ciaran", "surname": "Alford", "email": "Vivamus.molestie@Nuncsollicitudincommodo.co.uk", "city": "Bussolengo" }, { "name": "Cedric", "surname": "Battle", "email": "tincidunt@ligulatortor.edu", "city": "Kelkheim" }, { "name": "Alec", "surname": "Rasmussen", "email": "taciti.sociosqu@utlacus.co.uk", "city": "Colleretto Castelnuovo" }, { "name": "Fuller", "surname": "Hooper", "email": "Nam.porttitor@tempuseuligula.com", "city": "Izel" }, { "name": "Brett", "surname": "Fox", "email": "venenatis@tempor.ca", "city": "Castello Tesino" }, { "name": "Armand", "surname": "Nicholson", "email": "magna.Nam@blanditcongue.ca", "city": "Bournemouth" }, { "name": "Kennan", "surname": "Blair", "email": "eleifend.vitae@sedduiFusce.net", "city": "Paranaguá" }, { "name": "Jack", "surname": "Lowe", "email": "erat.vitae@Nunc.ca", "city": "Roveredo in Piano" }];
 
-var uniqueWordsSet = new _set2.default(duplicatedWordsArray);
+var sampleDuplicatedWordsArray = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu", "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
-var variousTypeMap = new _map2.default();
+var uniqueWordsSet = new _set2.default(sampleDuplicatedWordsArray);
+
+var sampleVariousTypeMap = new _map2.default();
 
 var keyString = "a string",
     keyObj = {},
     keyFunc = function keyFunc() {};
 
 // setting the values
-variousTypeMap.set(keyString, "value associated with \"a string\"");
-variousTypeMap.set(keyObj, "value associated with keyObj");
-variousTypeMap.set(keyFunc, "value associated with keyFunc");
+sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
+sampleVariousTypeMap.set(keyObj, "value associated with keyObj");
+sampleVariousTypeMap.set(keyFunc, "value associated with keyFunc");
 /*
  Example 01 - Simple generator example
  */
@@ -139,6 +145,10 @@ try {
 
         log(message);
     }
+
+    /*
+     Example 02 - Simple range generator example
+     */
 } catch (err) {
     _didIteratorError2 = true;
     _iteratorError2 = err;
@@ -150,6 +160,133 @@ try {
     } finally {
         if (_didIteratorError2) {
             throw _iteratorError2;
+        }
+    }
+}
+
+function range(start, stop) {
+    var i;
+    return _regenerator2.default.wrap(function range$(_context2) {
+        while (1) {
+            switch (_context2.prev = _context2.next) {
+                case 0:
+                    i = start;
+
+                case 1:
+                    if (!(i < stop)) {
+                        _context2.next = 7;
+                        break;
+                    }
+
+                    _context2.next = 4;
+                    return i;
+
+                case 4:
+                    i++;
+                    _context2.next = 1;
+                    break;
+
+                case 7:
+                case "end":
+                    return _context2.stop();
+            }
+        }
+    }, _marked[1], this);
+}
+
+logTitle("Show range numbers");
+var _iteratorNormalCompletion3 = true;
+var _didIteratorError3 = false;
+var _iteratorError3 = undefined;
+
+try {
+    for (var _iterator3 = (0, _getIterator3.default)(range(5, 10)), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        var value = _step3.value;
+
+        log(value);
+    }
+} catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+            _iterator3.return();
+        }
+    } finally {
+        if (_didIteratorError3) {
+            throw _iteratorError3;
+        }
+    }
+}
+
+logTitle("Use Range generator for Array.from");
+var arrayFrom = (0, _from2.default)(range(10, 20));
+log(arrayFrom);
+
+logTitle("Object.filter implemented as generator");
+
+Object.prototype.filter = _regenerator2.default.mark(function filter(test) {
+    var item;
+    return _regenerator2.default.wrap(function filter$(_context3) {
+        while (1) {
+            switch (_context3.prev = _context3.next) {
+                case 0:
+                    _context3.t0 = _regenerator2.default.keys(this);
+
+                case 1:
+                    if ((_context3.t1 = _context3.t0()).done) {
+                        _context3.next = 8;
+                        break;
+                    }
+
+                    item = _context3.t1.value;
+
+                    if (!(this.hasOwnProperty(item) && test.call(null, this[item]))) {
+                        _context3.next = 6;
+                        break;
+                    }
+
+                    _context3.next = 6;
+                    return this[item];
+
+                case 6:
+                    _context3.next = 1;
+                    break;
+
+                case 8:
+                case "end":
+                    return _context3.stop();
+            }
+        }
+    }, filter, this);
+});
+
+var filteredObject = sampleObject.filter(function (item) {
+    return typeof item === "number";
+});
+
+var _iteratorNormalCompletion4 = true;
+var _didIteratorError4 = false;
+var _iteratorError4 = undefined;
+
+try {
+    for (var _iterator4 = (0, _getIterator3.default)(filteredObject), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+        var s = _step4.value;
+
+        log(s);
+    }
+} catch (err) {
+    _didIteratorError4 = true;
+    _iteratorError4 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion4 && _iterator4.return) {
+            _iterator4.return();
+        }
+    } finally {
+        if (_didIteratorError4) {
+            throw _iteratorError4;
         }
     }
 }

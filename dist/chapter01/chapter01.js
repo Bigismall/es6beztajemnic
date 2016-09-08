@@ -48,22 +48,24 @@ var sampleArray = [].concat((0, _toConsumableArray3.default)(Array(10).keys())).
     return 0.5 - Math.random();
 });
 
-var sampleObject = [{ "name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck" }, { "name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle" }, { "name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen" }, { "name": "Byron", "surname": "Cooke", "email": "Ut@Integersemelit.co.uk", "city": "Habergy" }, { "name": "Ciaran", "surname": "Alford", "email": "Vivamus.molestie@Nuncsollicitudincommodo.co.uk", "city": "Bussolengo" }, { "name": "Cedric", "surname": "Battle", "email": "tincidunt@ligulatortor.edu", "city": "Kelkheim" }, { "name": "Alec", "surname": "Rasmussen", "email": "taciti.sociosqu@utlacus.co.uk", "city": "Colleretto Castelnuovo" }, { "name": "Fuller", "surname": "Hooper", "email": "Nam.porttitor@tempuseuligula.com", "city": "Izel" }, { "name": "Brett", "surname": "Fox", "email": "venenatis@tempor.ca", "city": "Castello Tesino" }, { "name": "Armand", "surname": "Nicholson", "email": "magna.Nam@blanditcongue.ca", "city": "Bournemouth" }, { "name": "Kennan", "surname": "Blair", "email": "eleifend.vitae@sedduiFusce.net", "city": "Paranaguá" }, { "name": "Jack", "surname": "Lowe", "email": "erat.vitae@Nunc.ca", "city": "Roveredo in Piano" }];
+var sampleObject = { name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now() };
 
-var duplicatedWordsArray = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu", "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
+var sampleCollection = [{ "name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck" }, { "name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle" }, { "name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen" }, { "name": "Byron", "surname": "Cooke", "email": "Ut@Integersemelit.co.uk", "city": "Habergy" }, { "name": "Ciaran", "surname": "Alford", "email": "Vivamus.molestie@Nuncsollicitudincommodo.co.uk", "city": "Bussolengo" }, { "name": "Cedric", "surname": "Battle", "email": "tincidunt@ligulatortor.edu", "city": "Kelkheim" }, { "name": "Alec", "surname": "Rasmussen", "email": "taciti.sociosqu@utlacus.co.uk", "city": "Colleretto Castelnuovo" }, { "name": "Fuller", "surname": "Hooper", "email": "Nam.porttitor@tempuseuligula.com", "city": "Izel" }, { "name": "Brett", "surname": "Fox", "email": "venenatis@tempor.ca", "city": "Castello Tesino" }, { "name": "Armand", "surname": "Nicholson", "email": "magna.Nam@blanditcongue.ca", "city": "Bournemouth" }, { "name": "Kennan", "surname": "Blair", "email": "eleifend.vitae@sedduiFusce.net", "city": "Paranaguá" }, { "name": "Jack", "surname": "Lowe", "email": "erat.vitae@Nunc.ca", "city": "Roveredo in Piano" }];
 
-var uniqueWordsSet = new _set2.default(duplicatedWordsArray);
+var sampleDuplicatedWordsArray = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu", "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "novemeber", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
-var variousTypeMap = new _map2.default();
+var uniqueWordsSet = new _set2.default(sampleDuplicatedWordsArray);
+
+var sampleVariousTypeMap = new _map2.default();
 
 var keyString = "a string",
     keyObj = {},
     keyFunc = function keyFunc() {};
 
 // setting the values
-variousTypeMap.set(keyString, "value associated with \"a string\"");
-variousTypeMap.set(keyObj, "value associated with keyObj");
-variousTypeMap.set(keyFunc, "value associated with keyFunc");
+sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
+sampleVariousTypeMap.set(keyObj, "value associated with keyObj");
+sampleVariousTypeMap.set(keyFunc, "value associated with keyFunc");
 /*
  Example 01 - For Of  Loop
  */
@@ -81,7 +83,7 @@ try {
         log(element);
     }
 
-    //Iterate over collection
+    //Iterate over object
 } catch (err) {
     _didIteratorError = true;
     _iteratorError = err;
@@ -97,13 +99,19 @@ try {
     }
 }
 
+logTitle("Iterate over object  (FOR IN)");
+for (var element in sampleObject) {
+    log(element);
+}
+
+//Iterate over collection
 logTitle("Iterate over collection");
 var _iteratorNormalCompletion2 = true;
 var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-    for (var _iterator2 = (0, _getIterator3.default)(sampleObject), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+    for (var _iterator2 = (0, _getIterator3.default)(sampleCollection), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
         var element = _step2.value;
 
         log(element);
@@ -159,7 +167,7 @@ var _didIteratorError4 = false;
 var _iteratorError4 = undefined;
 
 try {
-    for (var _iterator4 = (0, _getIterator3.default)(variousTypeMap), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+    for (var _iterator4 = (0, _getIterator3.default)(sampleVariousTypeMap), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
         var _step4$value = (0, _slicedToArray3.default)(_step4.value, 2);
 
         var key = _step4$value[0];
@@ -200,7 +208,7 @@ function CollectionClass(dataToIterate) {
     };
 };
 
-var iterateCollectionInstance = new CollectionClass(sampleObject);
+var iterateCollectionInstance = new CollectionClass(sampleCollection);
 
 logTitle("Iterator for Custom Collection");
 var _iteratorNormalCompletion5 = true;
