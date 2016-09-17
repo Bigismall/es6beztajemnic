@@ -1,4 +1,4 @@
-logTitle("Rest parameters");
+logTitle("Rest parameters - functions");
 
 function sumAll(...numbers) {
     var sum = 0;
