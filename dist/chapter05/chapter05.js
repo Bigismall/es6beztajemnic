@@ -1,12 +1,16 @@
 "use strict";
 
-var _iterator2 = require("babel-runtime/core-js/symbol/iterator");
+var _regenerator = require("babel-runtime/regenerator");
 
-var _iterator3 = _interopRequireDefault(_iterator2);
+var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _getIterator2 = require("babel-runtime/core-js/get-iterator");
+var _toArray2 = require("babel-runtime/helpers/toArray");
 
-var _getIterator3 = _interopRequireDefault(_getIterator2);
+var _toArray3 = _interopRequireDefault(_toArray2);
+
+var _slicedToArray2 = require("babel-runtime/helpers/slicedToArray");
+
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
 var _map = require("babel-runtime/core-js/map");
 
@@ -21,6 +25,8 @@ var _toConsumableArray2 = require("babel-runtime/helpers/toConsumableArray");
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [fibs].map(_regenerator2.default.mark);
 
 /*
  Example 00 - Sample Data and Methods
@@ -64,130 +70,105 @@ var keyString = "a string",
 sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
 sampleVariousTypeMap.set(keyObj, "value associated with keyObj");
 sampleVariousTypeMap.set(keyFunc, "value associated with keyFunc");
-logTitle("Rest parameters - functions");
+logTitle("Destructuring - Arrays");
 
-function sumAll() {
-    var sum = 0;
+var _sampleArray = (0, _slicedToArray3.default)(sampleArray, 3);
 
-    for (var _len = arguments.length, numbers = Array(_len), _key = 0; _key < _len; _key++) {
-        numbers[_key] = arguments[_key];
-    }
+var firstNumber = _sampleArray[0];
+var secondNumber = _sampleArray[1];
+var thirdNumber = _sampleArray[2];
 
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+log("Three first elements from sample array:  " + firstNumber + " " + secondNumber + " " + thirdNumber + " ");
 
-    try {
-        for (var _iterator = (0, _getIterator3.default)(numbers), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var n = _step.value;
+var _uniqueWordsSet = (0, _slicedToArray3.default)(uniqueWordsSet, 3);
 
-            sum += n;
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
+var firstSetElement = _uniqueWordsSet[0];
+var secondSetElement = _uniqueWordsSet[1];
+var thirdSetElement = _uniqueWordsSet[2];
+
+log("Three first elements from sample set:  " + firstSetElement + " " + secondSetElement + " " + thirdSetElement);
+
+var _sampleArray2 = (0, _toArray3.default)(sampleArray);
+
+var firstNumber = _sampleArray2[0];
+var secondNumber = _sampleArray2[1];
+var thirdNumber = _sampleArray2[2];
+
+var restOfArray = _sampleArray2.slice(3);
+
+log("Three first elements  and tail from sample array:  " + firstNumber + " " + secondNumber + " " + thirdNumber + "  " + restOfArray);
+
+//var sampleComplexArray = [0,1,2,3,[44,45,46,[471,472],48,49],5,6,7,8,9];
+var thirdElement = sampleComplexArray[3];
+
+var _sampleComplexArray$ = (0, _slicedToArray3.default)(sampleComplexArray[4], 4);
+
+var firstDeep = _sampleComplexArray$[0];
+var secondDeep = _sampleComplexArray$[1];
+
+var _sampleComplexArray$$ = (0, _toArray3.default)(_sampleComplexArray$[3]);
+
+var lastDeeper = _sampleComplexArray$$.slice(1);
+
+log("Deep and deeper elements: " + thirdElement + " " + firstDeep + " " + secondDeep + " " + lastDeeper);
+
+var a = 2,
+    b = 5;
+log(" Variables values switch before. a = " + a + ", b=" + b);
+var _ref = [b, a];
+a = _ref[0];
+b = _ref[1];
+
+log(" Variables values switch after. a = " + a + ", b=" + b);
+
+function fibs() {
+    var a, b, _ref2;
+
+    return _regenerator2.default.wrap(function fibs$(_context) {
+        while (1) {
+            switch (_context.prev = _context.next) {
+                case 0:
+                    a = 0;
+                    b = 1;
+
+                case 2:
+                    if (!true) {
+                        _context.next = 10;
+                        break;
+                    }
+
+                    _context.next = 5;
+                    return a;
+
+                case 5:
+                    _ref2 = [b, a + b];
+                    a = _ref2[0];
+                    b = _ref2[1];
+                    _context.next = 2;
+                    break;
+
+                case 10:
+                case "end":
+                    return _context.stop();
             }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
         }
-    }
-
-    return sum;
+    }, _marked[0], this);
 }
 
-log("Suma 1+2+3+4+5+6+7+8+9+10 = " + sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+var _fibs = fibs();
 
-logTitle("Rest parameters - arrays");
+var _fibs2 = (0, _slicedToArray3.default)(_fibs, 10);
 
-var cold = ['autumn', 'winter'];
-var warm = ['spring', 'summer'];
-
-var coldAndWarm = [].concat(cold, warm);
-
-//array clone
-var coldWarmPushTest1 = [].concat(cold);
-var coldWarmPushTest2 = [].concat(cold);
-
-coldWarmPushTest1.push.apply(coldWarmPushTest1, warm);
-coldWarmPushTest2.push(warm);
-
-log(coldAndWarm);
-log(coldWarmPushTest1);
-log(coldWarmPushTest2);
-
-logTitle("Array destructure");
-
-var seasons = ['winter', 'spring', 'summer', 'autumn'];
-var coldSeason, otherSeasons;
-
-coldSeason = seasons[0];
-otherSeasons = seasons.slice(1);
+var f1 = _fibs2[0];
+var f2 = _fibs2[1];
+var f3 = _fibs2[2];
+var f4 = _fibs2[3];
+var f5 = _fibs2[4];
+var f6 = _fibs2[5];
+var f7 = _fibs2[6];
+var f8 = _fibs2[7];
+var f9 = _fibs2[8];
+var f10 = _fibs2[9];
 
 
-log(seasons);
-log(coldSeason);
-log(otherSeasons);
-
-logTitle("Rest parameters -  with iterator example");
-//https://rainsoft.io/how-three-dots-changed-javascript/
-
-function iterator() {
-    var _this = this;
-
-    var index = 0;
-    return {
-        next: function next() {
-            return { // Conform to Iterator protocol
-                done: index >= _this.length,
-                value: _this[index++]
-            };
-        }
-    };
-}
-var arrayLike = {
-    0: 'Cat',
-    1: 'Bird',
-    2: 'Parrot',
-    3: 'Horse',
-    length: 4
-};
-
-arrayLike[_iterator3.default] = iterator; //Conform to Iterable Protocol
-var arrayFromObject = [].concat((0, _toConsumableArray3.default)(arrayLike));
-
-log(arrayLike);
-log(arrayFromObject);
-
-logTitle("Default parameters - strings example");
-
-function animalSentence() {
-    var animals2 = arguments.length <= 0 || arguments[0] === undefined ? "tigers" : arguments[0];
-    var animals3 = arguments.length <= 1 || arguments[1] === undefined ? "bears" : arguments[1];
-
-    return "Lions and " + animals2 + " and " + animals3 + "! Oh my!";
-}
-
-log(animalSentence());
-log(animalSentence("Eagles"));
-log(animalSentence("Eagles", "Parrots"));
-log(animalSentence(undefined, "Horses"));
-
-logTitle("Default parameters - numbers example");
-
-function sumPair() {
-    var a = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-    var b = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-
-    return a + b;
-}
-
-log("Suma undefined + undefined = " + sumPair());
-log("Suma 1 + undefined = " + sumPair(1));
-log("Suma 1 + 2 = " + sumPair(1, 2));
-log("Suma undefined +2 = " + sumPair(undefined, 2));
+log("Fibonacci : " + f1 + " " + f2 + " " + f3 + " " + f4 + " " + f5 + " " + f6 + " " + f7 + " " + f8 + " " + f9 + " " + f10);

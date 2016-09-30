@@ -21,6 +21,8 @@ var sampleArray = [...Array(10).keys()].sort(function () {
     return 0.5 - Math.random()
 });
 
+var sampleComplexArray = [0,1,2,3,[44,45,46,[471,472],48,49],5,6,7,8,9];
+
 var sampleObject = {name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now()};
 
 var sampleCollection = [
