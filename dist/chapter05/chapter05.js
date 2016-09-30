@@ -38,11 +38,13 @@ function logTitle(title) {
     console.log(title);
     console.log("-------------------------------------------");
     console.log("");
-};
+}
+;
 
 function log(message) {
     console.log(message);
-};
+}
+;
 
 var sampleSentence = "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.";
 
@@ -53,6 +55,12 @@ var sampleArray = [].concat((0, _toConsumableArray3.default)(Array(10).keys())).
 var sampleComplexArray = [0, 1, 2, 3, [44, 45, 46, [471, 472], 48, 49], 5, 6, 7, 8, 9];
 
 var sampleObject = { name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now() };
+
+var sampleComplexObject = {
+    person: { name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", age: 25 },
+    address: { city: "Morrovalle", street: "Newton" },
+    today: Date.now()
+};
 
 var sampleCollection = [{ "name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck" }, { "name": "Oren", "surname": "Austin", "email": "semper@hendreritidante.co.uk", "city": "Morrovalle" }, { "name": "Buckminster", "surname": "Johnston", "email": "sed.hendrerit.a@eudoloregestas.net", "city": "Olen" }, { "name": "Byron", "surname": "Cooke", "email": "Ut@Integersemelit.co.uk", "city": "Habergy" }, { "name": "Ciaran", "surname": "Alford", "email": "Vivamus.molestie@Nuncsollicitudincommodo.co.uk", "city": "Bussolengo" }, { "name": "Cedric", "surname": "Battle", "email": "tincidunt@ligulatortor.edu", "city": "Kelkheim" }, { "name": "Alec", "surname": "Rasmussen", "email": "taciti.sociosqu@utlacus.co.uk", "city": "Colleretto Castelnuovo" }, { "name": "Fuller", "surname": "Hooper", "email": "Nam.porttitor@tempuseuligula.com", "city": "Izel" }, { "name": "Brett", "surname": "Fox", "email": "venenatis@tempor.ca", "city": "Castello Tesino" }, { "name": "Armand", "surname": "Nicholson", "email": "magna.Nam@blanditcongue.ca", "city": "Bournemouth" }, { "name": "Kennan", "surname": "Blair", "email": "eleifend.vitae@sedduiFusce.net", "city": "Paranaguá" }, { "name": "Jack", "surname": "Lowe", "email": "erat.vitae@Nunc.ca", "city": "Roveredo in Piano" }];
 
@@ -172,3 +180,50 @@ var f10 = _fibs2[9];
 
 
 log("Fibonacci : " + f1 + " " + f2 + " " + f3 + " " + f4 + " " + f5 + " " + f6 + " " + f7 + " " + f8 + " " + f9 + " " + f10);
+
+logTitle("Destructuring - Objects");
+
+var nameValue = sampleObject.name;
+var surnameValue = sampleObject.surname;
+
+log("Name: " + nameValue + " Surname: " + surnameValue);
+
+var name = sampleObject.name;
+var surname = sampleObject.surname;
+var email = sampleObject.email;
+
+log("Name: " + name + " Surname: " + surname + " E-mail:  " + email);
+
+var today = sampleComplexObject.today;
+var name = sampleComplexObject.person.name;
+var _sampleComplexObject$ = sampleComplexObject.address;
+var city = _sampleComplexObject$.city;
+var street = _sampleComplexObject$.street;
+
+log("Today: " + today + "  Name: " + name + " City: " + city + " Street: " + street);
+logTitle("Destructuring - Default values");
+
+var nameValue = sampleObject.name;
+var surnameValue = sampleObject.surname;
+var _sampleObject$tommoro = sampleObject.tommorow;
+var tommorowValue = _sampleObject$tommoro === undefined ? "Friday?" : _sampleObject$tommoro; //Tommorow property doesn't exists in sampleObject
+
+log("Name: " + nameValue + " Surname: " + surnameValue + " TommorowValue: " + tommorowValue);
+
+var _ref3 = [];
+var _ref3$ = _ref3[0];
+var missing = _ref3$ === undefined ? true : _ref3$;
+
+log("Missing param: " + missing);
+
+var _ref4 = {};
+var _ref4$message = _ref4.message;
+var msg = _ref4$message === undefined ? "Something went wrong." : _ref4$message;
+
+log("Missing msg: " + msg);
+
+var _ref5 = {};
+var _ref5$x = _ref5.x;
+var x = _ref5$x === undefined ? 3 : _ref5$x;
+
+log("Missing x: " + x);

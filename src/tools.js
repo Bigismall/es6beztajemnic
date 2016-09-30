@@ -8,11 +8,13 @@ function logTitle(title) {
     console.log(title);
     console.log("-------------------------------------------");
     console.log("");
-};
+}
+;
 
 function log(message) {
     console.log(message);
-};
+}
+;
 
 
 var sampleSentence = "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.";
@@ -21,9 +23,16 @@ var sampleArray = [...Array(10).keys()].sort(function () {
     return 0.5 - Math.random()
 });
 
-var sampleComplexArray = [0,1,2,3,[44,45,46,[471,472],48,49],5,6,7,8,9];
+var sampleComplexArray = [0, 1, 2, 3, [44, 45, 46, [471, 472], 48, 49], 5, 6, 7, 8, 9];
 
 var sampleObject = {name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", city: "Morrovalle", age: 25, today: Date.now()};
+
+var sampleComplexObject = {
+    person: {name: "Oren", surname: "Austin", email: "semper@hendreritidante.co.uk", age: 25},
+    address: {city: "Morrovalle", street: "Newton"},
+    today: Date.now()
+};
+
 
 var sampleCollection = [
     {"name": "Calvin", "surname": "Castillo", "email": "nibh.vulputate@velnislQuisque.edu", "city": "Landeck"},
@@ -51,9 +60,9 @@ var uniqueWordsSet = new Set(sampleDuplicatedWordsArray);
 var sampleVariousTypeMap = new Map();
 
 var keyString = "a string",
-    keyObj = {},
-    keyFunc = function () {
-    };
+        keyObj = {},
+        keyFunc = function () {
+        };
 
 // setting the values
 sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
