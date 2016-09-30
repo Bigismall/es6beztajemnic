@@ -1,5 +1,9 @@
 "use strict";
 
+var _getIterator2 = require("babel-runtime/core-js/get-iterator");
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
 var _regenerator = require("babel-runtime/regenerator");
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
@@ -227,3 +231,113 @@ var _ref5$x = _ref5.x;
 var x = _ref5$x === undefined ? 3 : _ref5$x;
 
 log("Missing x: " + x);
+logTitle("Destructuring - usage examples");
+log("Key - Value paris");
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+    for (var _iterator = (0, _getIterator3.default)(sampleVariousTypeMap), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _step$value = (0, _slicedToArray3.default)(_step.value, 2);
+
+        var key = _step$value[0];
+        var value = _step$value[1];
+
+        log(" " + key + " - " + value);
+    }
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
+}
+
+log("Keys list");
+var _iteratorNormalCompletion2 = true;
+var _didIteratorError2 = false;
+var _iteratorError2 = undefined;
+
+try {
+    for (var _iterator2 = (0, _getIterator3.default)(sampleVariousTypeMap), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var _step2$value = (0, _slicedToArray3.default)(_step2.value, 1);
+
+        var key = _step2$value[0];
+
+        log(" " + key);
+    }
+} catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+            _iterator2.return();
+        }
+    } finally {
+        if (_didIteratorError2) {
+            throw _iteratorError2;
+        }
+    }
+}
+
+log("Values list");
+var _iteratorNormalCompletion3 = true;
+var _didIteratorError3 = false;
+var _iteratorError3 = undefined;
+
+try {
+    for (var _iterator3 = (0, _getIterator3.default)(sampleVariousTypeMap), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        var _step3$value = (0, _slicedToArray3.default)(_step3.value, 2);
+
+        var value = _step3$value[1];
+
+        log(" " + value);
+    }
+} catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+            _iterator3.return();
+        }
+    } finally {
+        if (_didIteratorError3) {
+            throw _iteratorError3;
+        }
+    }
+}
+
+function returnArrayMultipleValues() {
+    return sampleArray;
+}
+
+var _returnArrayMultipleV = returnArrayMultipleValues();
+
+var _returnArrayMultipleV2 = (0, _slicedToArray3.default)(_returnArrayMultipleV, 2);
+
+var foo = _returnArrayMultipleV2[0];
+var bar = _returnArrayMultipleV2[1];
+
+log("Returned foo: " + foo + " bar: " + bar);
+
+function returnObjectMultipleValues() {
+    return sampleObject;
+}
+
+var _returnObjectMultiple = returnObjectMultipleValues();
+
+var name = _returnObjectMultiple.name;
+var surname = _returnObjectMultiple.surname;
+var email = _returnObjectMultiple.email;
+
+log("Returned name: " + name + " surname: " + surname + " email: " + email);
