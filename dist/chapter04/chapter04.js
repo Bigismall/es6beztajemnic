@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+ Example 00 - Sample Data and Methods
+ */
+
 var _iterator2 = require("babel-runtime/core-js/symbol/iterator");
 
 var _iterator3 = _interopRequireDefault(_iterator2);
@@ -21,10 +25,6 @@ var _toConsumableArray2 = require("babel-runtime/helpers/toConsumableArray");
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/*
- Example 00 - Sample Data and Methods
- */
 
 function logTitle(title) {
     console.log("");

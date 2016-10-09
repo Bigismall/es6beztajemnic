@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  Example 00 - Sample Data and Methods
  */

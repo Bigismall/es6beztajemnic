@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+ Example 00 - Sample Data and Methods
+ */
+
 var _slicedToArray2 = require("babel-runtime/helpers/slicedToArray");
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
@@ -25,10 +29,6 @@ var _toConsumableArray2 = require("babel-runtime/helpers/toConsumableArray");
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/*
- Example 00 - Sample Data and Methods
- */
 
 function logTitle(title) {
     console.log("");

@@ -4,6 +4,34 @@
  Example 00 - Sample Data and Methods
  */
 
+var _for = require("babel-runtime/core-js/symbol/for");
+
+var _for2 = _interopRequireDefault(_for);
+
+var _typeof2 = require("babel-runtime/helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+var _ownKeys = require("babel-runtime/core-js/reflect/own-keys");
+
+var _ownKeys2 = _interopRequireDefault(_ownKeys);
+
+var _getOwnPropertySymbols = require("babel-runtime/core-js/object/get-own-property-symbols");
+
+var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);
+
+var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");
+
+var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);
+
+var _keys = require("babel-runtime/core-js/object/keys");
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _symbol = require("babel-runtime/core-js/symbol");
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
 var _map = require("babel-runtime/core-js/map");
 
 var _map2 = _interopRequireDefault(_map);
@@ -64,22 +92,55 @@ var keyString = "a string",
 sampleVariousTypeMap.set(keyString, "value associated with \"a string\"");
 sampleVariousTypeMap.set(keyObj, "value associated with keyObj");
 sampleVariousTypeMap.set(keyFunc, "value associated with keyFunc");
-logTitle("String templates");
+logTitle("Symbols");
 
-var name = "Bigi";
-var action = "Start";
-var stringTemplateSentence = " User " + name + " has taken action " + action + " !";
-var inceptionTemplateString = "What we know? \"" + stringTemplateSentence + "\"  So we can forget about user " + name;
+var uniqueKey = (0, _symbol2.default)("uniqueKey 1");
+var anotherUniqueKey = (0, _symbol2.default)("uniqueKey 2");
 
-log(stringTemplateSentence);
-log(inceptionTemplateString);
+sampleObject[uniqueKey] = "I'm a value under UNIQUE symbol key";
+sampleObject[anotherUniqueKey] = "I'm a another value under UNIQłUE symbol key";
 
-logTitle("String templates - object example");
+log(sampleObject);
 
-sampleObject.toString = function () {
-    return " " + this.name + "  " + this.surname + "  @" + this.email;
-};
+log(uniqueKey);
+log(anotherUniqueKey);
 
-var objectStringTemplate = "Hello Object -> " + sampleObject;
+log(sampleObject[uniqueKey]);
+log(sampleObject[anotherUniqueKey]);
 
-log(objectStringTemplate);
+//Yo can't list Symbol keys in old way
+log((0, _keys2.default)(sampleObject));
+log((0, _getOwnPropertyNames2.default)(sampleObject));
+
+//But...
+log("Using: Object.getOwnPropertySymbols()");
+log((0, _getOwnPropertySymbols2.default)(sampleObject));
+log("Using: Reflect.ownKeys");
+log((0, _ownKeys2.default)(sampleObject));
+
+//Type of Symbole
+console.log(typeof uniqueKey === "undefined" ? "undefined" : (0, _typeof3.default)(uniqueKey));
+
+//Wont'work
+//log("Sample text with symbol" + uniqueKey);
+log("Sample text with symbol" + uniqueKey.toString());
+
+logTitle("Symbols - in depth");
+
+log("Show all private keys of Symbol object");
+log((0, _ownKeys2.default)(_symbol2.default));
+
+for (var i = 0; i < 5; i++) {
+    log((0, _symbol2.default)("symbol-" + i));
+}
+
+log((0, _symbol2.default)('symbol-10'));
+log((0, _symbol2.default)('symbol-10'));
+log((0, _symbol2.default)('symbol-10'));
+
+for (var i = 0; i < 5; i++) {
+    log((0, _for2.default)("symbol-" + i));
+}
+log((0, _for2.default)('symbol-10'));
+log((0, _for2.default)('symbol-10'));
+log((0, _for2.default)('symbol-10'));

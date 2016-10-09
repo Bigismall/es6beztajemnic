@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+ Example 00 - Sample Data and Methods
+ */
+
 var _getIterator2 = require("babel-runtime/core-js/get-iterator");
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
@@ -27,10 +31,6 @@ var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _marked = [stupidGenerator, range].map(_regenerator2.default.mark);
-
-/*
- Example 00 - Sample Data and Methods
- */
 
 function logTitle(title) {
     console.log("");
